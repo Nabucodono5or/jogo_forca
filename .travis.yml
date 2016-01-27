@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - "2.2.3"
+script:
+    - bundle exec rake
+addons:
+  code_climate:
+    repo_token: adf08323...
