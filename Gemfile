@@ -5,8 +5,8 @@ group "test" do
 	gem "rspec"
 	gem "cucumber"
 	gem "rake"
-	gem "codeclimate-test-reporter", require: nil
 end
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 # gem "rails"
 
