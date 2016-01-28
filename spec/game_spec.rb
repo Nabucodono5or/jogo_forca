@@ -6,12 +6,13 @@ require 'game'
 describe Game do
 	describe "#start" do
 		it "imprima a memssagem inicial" do
-			game = Game.new
-			
-			game.start
+			output = double("output")			
+			game = Game.new(output)
 
 			initial_message = "Bem vindo ao jogo da forca!"
-			STDOUT.should include(initial_message)
+			output.should_receive(:puts).with(initial_message)
+			
+			game.start
 		end
 	end
 end
