@@ -13,3 +13,18 @@ Funcionalidade: Começar jogo
 		 """
 		 Bem vindo ao jogo da forca!
 		 """
+
+	@wip
+	Cenário: Sorteio da palavra com sucesso
+		Após o jogador começar, ele deve escolher o tamano da
+		palavra a ser advinhada. Ao escolher o tamanho, o jogo sorteia a
+		palavra e mostra  na tela um "-" para cada letra que a palavra
+		sorteada tem.
+
+		Dado que comecei um jogo
+		Quando escolho que a palavra sorteada deverá ter "4" letras
+		Então vejo na tela:
+			"""
+			_ _ _ _
+			"""
+
