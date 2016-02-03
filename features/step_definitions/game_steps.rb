@@ -17,7 +17,7 @@ end
 
 Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 	steps %{
-		Then the output should contain exactly:
+		Then it should pass with:
 		"""
 		#{text}
 		"""	
