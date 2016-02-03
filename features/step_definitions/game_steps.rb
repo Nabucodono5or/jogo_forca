@@ -21,6 +21,7 @@ Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 		"""
 		#{text}
 		"""	
+		And then the exit status should be 0
 	}
 
 end 

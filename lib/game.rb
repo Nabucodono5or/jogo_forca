@@ -8,7 +8,8 @@ class Game
 
 	def start
 		initial_message = "Bem vindo ao jogo da forca!"
-		@output.puts initial_message	
+		@output.puts initial_message
+		@ended = true	
 	end
 	
 	def ended?
