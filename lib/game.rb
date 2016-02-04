@@ -8,11 +8,14 @@ class Game
 
 	def start
 		initial_message = "Bem vindo ao jogo da forca!"
-		@output.puts initial_message
-		@ended = true	
+		@output.puts initial_message	
 	end
 	
 	def ended?
 		@ended	
+	end
+
+	def next_step
+		@output.puts("Qual o tamanho da palavra a ser sorteada?")	
 	end
 end
