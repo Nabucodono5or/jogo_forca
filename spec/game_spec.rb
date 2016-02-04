@@ -4,13 +4,13 @@ require 'spec_helper'
 require 'game'
 
 describe Game do
-	let(:output) { double("output") }
-	subject(:game) { Game.new(output) }	
+	let(:ui) { double("ui") }
+	subject(:game) { Game.new(ui) }	
 	
 	describe "#start" do
 		it "imprima a memssagem inicial" do
 			initial_message = "Bem vindo ao jogo da forca!"
-			output.should_receive(:puts).with(initial_message)
+			ui.should_receive(:write).with(initial_message)
 			
 			game.start
 		end
@@ -26,8 +26,10 @@ describe Game do
 		context "when the game just started" do
 			it "asks the player for the length of the word to be raffled" do
 				question = "Qual o tamanho da palavra a ser sorteada?"
-				output.should_receive(:puts).with(question)
+				ui.should_receive(:write).with(question)
 
+				ui.should_receive(:read)
+				
 				game.next_step
 			end		
 		end	

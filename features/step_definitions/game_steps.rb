@@ -15,6 +15,12 @@ Quando /^escolho que a palavra sorteada deverá ter "(.*?)" letras$/ do |number_
 	} 
 end
 
+Quando /^termino o jogo$/ do
+	steps %{
+		When I type "fim" 	
+	}
+end
+
 Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 	steps %{
 		Then it should pass with:

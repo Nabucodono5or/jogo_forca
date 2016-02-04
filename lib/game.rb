@@ -1,14 +1,16 @@
 # encoding: UTF-8
 
+require_relative 'cli_ui'
+
 class Game
-	def initialize( output = STDOUT)
-		@output = output
-        @ended = false
+	def initialize( ui = CLiUi.new)
+		@ui = ui
+        	@ended = false
 	end
 
 	def start
 		initial_message = "Bem vindo ao jogo da forca!"
-		@output.puts initial_message	
+		@ui.write initial_message	
 	end
 	
 	def ended?
@@ -16,6 +18,7 @@ class Game
 	end
 
 	def next_step
-		@output.puts("Qual o tamanho da palavra a ser sorteada?")	
+		@ui.write("Qual o tamanho da palavra a ser sorteada?")
+		word_length = @ui.read	
 	end
 end
