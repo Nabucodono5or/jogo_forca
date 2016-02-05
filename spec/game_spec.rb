@@ -51,7 +51,7 @@ describe Game do
 
 				game.next_step
 
-				game.raffled_word.should have(word_length).letters
+				expect(game.raffled_word.length).to eq(word_length.to_i)
 			end
 		end
 	
