@@ -23,7 +23,7 @@ end
 
 Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 	steps %{
-		Then it should pass with:
+		Then the stdout should contain:
 		"""
 		#{text}
 		"""	

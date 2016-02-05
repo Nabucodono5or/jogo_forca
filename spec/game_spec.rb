@@ -42,7 +42,19 @@ describe Game do
 				expect(game).to be_ended			
 			end
 		
-		end	
+		end
+
+		context "when the player asks to raffle a word" do
+			it "raffles a word with the given length" do
+				word_length = "3"
+				ui.stub(read: word_length)
+
+				game.next_step
+
+				game.raffled_word.should have(word_length).letters
+			end
+		end
+	
 	end	
 end
 
