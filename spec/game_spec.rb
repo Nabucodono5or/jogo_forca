@@ -10,6 +10,7 @@ describe Game do
 	describe "#start" do
 		it "imprima a memssagem inicial" do
 			initial_message = "Bem vindo ao jogo da forca!"
+			
 			ui.should_receive(:write).with(initial_message)
 			
 			game.start
