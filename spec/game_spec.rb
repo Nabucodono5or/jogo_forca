@@ -11,7 +11,7 @@ describe Game do
 		it "imprima a memssagem inicial" do
 			initial_message = "Bem vindo ao jogo da forca!"
 			
-			ui.should_receive(:write).with(initial_message)
+			expect(ui).to receive(:write).and_return(initial_message)
 			
 			game.start
 		end
@@ -27,17 +27,15 @@ describe Game do
 		context "when the game just started" do
 			it "asks the player for the length of the word to be raffled" do
 				question = "Qual o tamanho da palavra a ser sorteada?"
-				ui.should_receive(:write).with(question)
-				
+				allow(ui).to receive(:write).and_return(question) 								
 				word_length = "3"
-				ui.should_receive(:read).and_return(word_length)
-				
+				expect(ui).to receive(:read).and_return(word_length) 								
 				game.next_step
 			end
 			
 			it "finishes the game when the player asks to" do
 				player_input = "fim"
-				ui.stub(read: player_input)
+				allow(ui).to receive(:read).and_return(player_input)
 
 				game.next_step
 
@@ -49,7 +47,7 @@ describe Game do
 		context "when the player asks to raffle a word" do
 			it "raffles a word with the given length" do
 				word_length = "3"
-				ui.stub(read: word_length)
+				allow(ui).to receive(:read).and_return(word_length)
 
 				game.next_step
 
@@ -58,10 +56,9 @@ describe Game do
 
 			it "prints a '_' for each letter in the raffled word" do
 				word_length = "3"
+				allow(ui).to receive(:read).and_return(word_length)
 				
-				ui.stub(read: word_length)
-				
-				ui.should_receive(:write).with("_ _ _")
+				expect(ui).to receive(:write).and_return("_ _ _")
 
 				game.next_step	
 		
