@@ -31,4 +31,12 @@ class Game
 			@raffled_word = words.detect { |word| word.length == word_length }
 		end
 	end
+
+
+	private
+	def raffle_word(word_length)
+		words = w%(hi mom game fruit)
+		@raffled_word = words_detect { |word| word.length == word_length }	
+	end
+
 end

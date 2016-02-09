@@ -53,6 +53,18 @@ describe Game do
 
 				expect(game.raffled_word.length).to eq(word_length.to_i)
 			end
+
+			it "prints a '_' for each letter in the raffled word" do
+				word_length = "3"
+				
+				ui.stub(read: word_length)
+				
+				ui.should_receive(:write).with("_ _ _")
+
+				game.next_step	
+		
+			end
+
 		end
 	
 	end	
