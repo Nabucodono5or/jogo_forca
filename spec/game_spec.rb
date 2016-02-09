@@ -27,8 +27,9 @@ describe Game do
 			it "asks the player for the length of the word to be raffled" do
 				question = "Qual o tamanho da palavra a ser sorteada?"
 				ui.should_receive(:write).with(question)
-
-				ui.should_receive(:read)
+				
+				word_length = "3"
+				ui.should_receive(:read).and_return(word_length)
 				
 				game.next_step
 			end
