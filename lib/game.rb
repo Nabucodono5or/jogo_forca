@@ -6,9 +6,10 @@ class Game
 	attr_reader :raffled_word	
 
 # método incializador	
-	def initialize( ui = CLiUi.new)
+	def initialize( ui = CLiUi.new, word_raffler = WordRaffler.new)
 	  @ui = ui
-          @ended = false
+	  @word_raffler = word_raffler
+      @ended = false
 	end
 
 # método start
@@ -31,7 +32,7 @@ class Game
 		@ended = true		
 		else
 
-		  if raffle_word(player_input.to_i)
+		  if @raffled_word = @word_raffled.raffle(player_input.to_i)
 			print_letters_feedback
 			else
 				
@@ -46,12 +47,6 @@ class Game
 
 
 	private
-# método privado raffle_word
-	def raffle_word(word_length)
-	  words = %w(hi mom game fruit)
-	  @raffled_word = words.detect { |word| word.length == word_length }	
-	end
-
 #método privado print_letters_feedback
 	def print_letters_feedback
 	  letters_feedback = ""
