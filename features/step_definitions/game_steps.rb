@@ -31,3 +31,4 @@ Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 	}
 
 end 
+

@@ -4,6 +4,7 @@ module GameHelpers
            When I run 'forca' interactively
         }            
     end
+
 end
 
 

@@ -63,6 +63,19 @@ describe Game do
 				game.next_step	
 		
 			end
+			
+			it "tells if it's not possible to raffle with the given length" do
+				word_length = "20"
+				allow(ui).to receive(:read).and_return(word_length)
+
+				error_message = "Não temos uma palavra como tamanho " <<
+				"desejado, \n" <<
+				"é necessário escolher outro tamanho."
+				
+				expect(ui).to receive(:write).and_return(error_message)
+
+				game.next_step
+			end	
 
 		end
 	
