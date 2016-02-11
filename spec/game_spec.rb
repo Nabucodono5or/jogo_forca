@@ -59,7 +59,7 @@ describe Game do
 			it "prints a '_' for each letter in the raffled word" do
 				word_length = "3"
 				allow(ui).to receive(:read).and_return(word_length)
-				allow(word_raffler).to receive(:raffle) {"mom"}				
+				allow(word_raffler).to receive(:raffle).and_return("mom") 				
 
 				expect(ui).to receive(:write).and_return("_ _ _")
 
@@ -70,7 +70,7 @@ describe Game do
 			it "tells if it's not possible to raffle with the given length" do
 				word_length = "20"
 				allow(ui).to receive(:read).and_return(word_length)
-				allow(word_raffler).to receive(:raffle) {nil}
+				allow(word_raffler).to receive(:raffle).and_return(nil)
 
 				error_message = "Não temos uma palavra como tamanho " <<
 				"desejado, \n" <<
