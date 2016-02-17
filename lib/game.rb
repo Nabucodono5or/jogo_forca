@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 require_relative 'cli_ui'
+require 'word_raffler'
 
 class Game
 	attr_reader :raffled_word	
@@ -32,7 +33,7 @@ class Game
 		@ended = true		
 		else
 
-		  if @raffled_word = @word_raffled.raffle(player_input.to_i)
+		  if @raffled_word = @word_raffler.raffle(player_input.to_i)
 			print_letters_feedback
 			else
 				

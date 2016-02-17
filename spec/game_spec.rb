@@ -51,7 +51,7 @@ describe Game do
 				word_length = "3"
 				allow(ui).to receive(:read).and_return(word_length)
 
-				expect(word_raffler).to receive(:raffle).and_return(word_length.to_i)
+				expect(word_raffler).to receive(:raffle)
 				
 				game.next_step			
 			end
