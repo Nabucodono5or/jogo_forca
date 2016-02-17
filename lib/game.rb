@@ -12,6 +12,25 @@ class Game
           @ended = false
 	end
 
+
+# método raffle
+	def raffle(word_length)
+	  @raffled_word = @word_raffler.raffle(word_length)
+	end
+
+
+#método ended?
+	def ended?
+	  @ended
+	end
+
+# método temporário finish
+	def finish
+	  @ended = true	
+	end
+
+
+# métodos a serem retirados para outra classe
 # método start
 	def start
 	  initial_message = "Bem vindo ao jogo da forca!"
