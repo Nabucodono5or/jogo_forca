@@ -1,16 +1,15 @@
 # encoding: UTF-8
 
-require_relative 'cli_ui'
+require 'cli_ui'
 require 'word_raffler'
 
 class Game
 	attr_reader :raffled_word	
 
 # método incializador	
-	def initialize( ui = CLiUi.new, word_raffler = WordRaffler.new)
-	  @ui = ui
+	def initialize(word_raffler = WordRaffler.new)
 	  @word_raffler = word_raffler
-      @ended = false
+          @ended = false
 	end
 
 # método start
