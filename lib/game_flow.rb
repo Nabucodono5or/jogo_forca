@@ -2,8 +2,14 @@
 
 require 'game'
 require 'cli_ui'
+require 'forwardable'
 
+# Esta classe é responsável pelo fluxo do jogo.
+#
 class GameFlow
+	extend Forwardable
+	delegate :ended? => :@game
+
 	def initialize(game = Game.new, ui = CLiUi.new)
 	  @game = game
 	  @ui = ui

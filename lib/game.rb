@@ -1,6 +1,5 @@
 # encoding: UTF-8
 
-require 'cli_ui'
 require 'word_raffler'
 
 class Game
