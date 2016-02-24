@@ -24,10 +24,10 @@ Funcionalidade: Advinhar letra
 	  jogador advinhou.
 
 	  Dado que comecei um jogo
-	  E que escolhi que a palvra a ser sorteada deverá ter "3" letras
-	  Quando tento advinhar qua a palavra tem a letra "a"
+	  E que escolhi que a palavra a ser sorteada deverá ter "3" letras
+	  Quando tento advinhar que a palavra tem a letra "a"
 	  E termino o jogo
-	  Então o jogo mostra que eu advinhei uma letra com sucesso
+	  Então o jogo mostra que eu adivinhei uma letra com sucesso
 	  E o jogo termina com a seguinte mensagem na tela:
 	    """
 	    a _ _
