@@ -30,5 +30,11 @@ Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 		And then the exit status should be 0
 	}
 
-end 
+end
+
+Dado /^o jogo tem as possíveis palavras para sortear:$/ do |word_table|
+	words = word_table.rows.map(&:last).join(" ")
+	set_rafflable_words(words)
+end
+
 

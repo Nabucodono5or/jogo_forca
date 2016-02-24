@@ -4,9 +4,30 @@ $:.unshift File.join(File.dirname(__FILE__), "..","lib")
 
 require 'game_flow'
 
+# método de criação do objeto game
+def create_game
+	word_raffler = create_word_raffler
+	Game.new(word_raffler)
+end
+
+# método de criação do objeto WordRaffler
+def create_word_raffler
+	if ARGV.first
+	  words = ARGV.pop
+	  words = words.split
+	  WordRaffler.new(words)
+	else
+	  WordRaffler.new
+	end
+end
+
+# conjunto de inicialização dos objetos game e gameflow
+game = create_game
+
 game_flow = GameFlow.new
 game_flow.start
 
+# controle do fluxo de jogo
 while not game_flow.ended?
 	game_flow.next_step
 end
