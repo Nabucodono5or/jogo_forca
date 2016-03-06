@@ -50,13 +50,11 @@ Quando /^tento advinhar que a palavra tem a letra "(.*?)"$/ do |letter|
 	}
 end
 
-Então /^o jogo mostra que eu adivinhei uma letra com sucesso$/ do
+Então /^o jogo mostra que eu adivinhei uma letra com sucesso$/ do 
 	steps %{
-	  Then the stdout should contain:
-	     """
-	     Você adivinhou uma letra com sucesso.
-             """
-	}
-
+		Then the output should contain:
+		"""
+		Você adivinhou uma letra com sucesso.
+		"""
+}
 end
-
