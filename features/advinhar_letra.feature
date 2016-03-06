@@ -4,11 +4,11 @@ Funcionalidade: Advinhar letra
 	Após a palavra do jogo ser sorteada, o jogador pode começar a tentar
 	advinhar as letras da palavra.
 
-	Cadea vez que ele acerta uma letra, o jogo mostra para ele em que 
+	Cada vez que ele acerta uma letra, o jogo mostra para ele em que 
 	posição dentro da palavra está a letra que ele acertou.
 
 	Cada vez que o jogador erra uma letra, uma parte do boneco da 
-	forca paarece na forca. O jogador pode errar no máximo seis vezes, que
+	forca aparece na forca. O jogador pode errar no máximo seis vezes, que
 	correspondem às seis partes do boneco: cabeça, corpo, braço equerdo, 
 	braço direito, perna esquerda, perna direita.
 
