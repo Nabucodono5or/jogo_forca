@@ -35,6 +35,14 @@ describe Game do
 		
 		  expect(game.raffled_word).to eq(raffled_word) 
 		
+		end
+
+		it "makes a transition from :initial to :word_raffled on success" do 
+		  allow(word_raffler).to receive(:raffle).and_return("word")
+		  
+		  expect do
+			game.raffle(3)
+		  end.to change { game.state }.from(:initial).to(:word_raffled)		
 		end	
 	end
 	
