@@ -9,7 +9,6 @@ class Game
 # método incializador	
 	def initialize(word_raffler = WordRaffler.new)
 	  @word_raffler = word_raffler
-          @ended = false
 	  @state = :initial
 	end
 
@@ -24,12 +23,12 @@ class Game
 
 #método ended?
 	def ended?
-	  @ended
+	  @state == :ended
 	end
 
 # método temporário finish
 	def finish
-	  @ended = true	
+	  @state = :ended	
 	end
 
 end
