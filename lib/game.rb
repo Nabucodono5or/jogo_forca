@@ -9,6 +9,7 @@ class Game
 	def initialize(word_raffler = WordRaffler.new)
 	  @word_raffler = word_raffler
           @ended = false
+	  @state = :initial
 	end
 
 

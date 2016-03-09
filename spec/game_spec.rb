@@ -6,7 +6,13 @@ require 'game'
 describe Game do
 	let(:word_raffler) { double("word_raffler").as_null_object }
 
-	subject(:game) { Game.new(word_raffler) }	
+	subject(:game) { Game.new(word_raffler) }
+
+	context "when just created" do
+		it "(:state) { should  == :initial}" do
+			expect { subject.state(:initial) }		
+		end	
+	end	
 	
 	describe "#ended?" do
 		it "returns false when the game just started" do
