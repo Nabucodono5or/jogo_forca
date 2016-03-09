@@ -43,7 +43,16 @@ describe Game do
 		  expect do
 			game.raffle(3)
 		  end.to change { game.state }.from(:initial).to(:word_raffled)		
-		end	
+		end
+
+		it "stays on the :initial state when a word can't be raffled" do
+		   allow(word_raffler).to receive(:raffle).and_return(nil)
+
+		   game.raffle(3)
+
+		   expect(game.state).to eq(:initial)		
+		end
+	
 	end
 	
 
