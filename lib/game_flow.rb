@@ -23,7 +23,16 @@ class GameFlow
 
 # método next_step
 	def next_step
-	  @ui.write("Qual o tamanho da palavra a ser sorteada?")
+	  case @game.state
+	  when :initial
+		ask_to_raffle_a_word
+	  end
+	end
+
+	private
+#método privado print_letters_feedback
+    def ask_to_raffle_a_word
+   	  @ui.write("Qual o tamanho da palavra a ser sorteada?")
 	  player_input = @ui.read.strip
 
 	  if player_input == "fim"
@@ -39,10 +48,9 @@ class GameFlow
 			  @ui.write(error_message)
 			end
 		end
-	end
 
-	private
-#método privado print_letters_feedback
+    end
+
 	def print_letters_feedback
 	  letters_feedback = ""
 		

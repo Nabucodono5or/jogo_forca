@@ -5,7 +5,7 @@ require 'game_flow'
 
 describe GameFlow do
 	let(:ui) { double("ui").as_null_object }
-	let(:game) { double("game").as_null_object }
+	let(:game) { double("game",state: :initial).as_null_object }
 
 	subject(:game_flow) { GameFlow.new(game,ui) }
 
