@@ -26,6 +26,8 @@ class GameFlow
 	  case @game.state
 	  when :initial
 		ask_to_raffle_a_word
+	  when :word_raffled
+		ask_to_guess_a_letter
 	  end
 	end
 
@@ -50,6 +52,15 @@ class GameFlow
 		end
 
     end
+
+	def ask_to_guess_a_letter
+	  letter = @ui.read.strip
+
+	  if @game.guess_letter(letter)
+		@ui.write("Você advinhou uma letra com sucesso.")
+	  end	
+	end
+
 
 	def print_letters_feedback
 	  letters_feedback = ""
