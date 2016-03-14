@@ -32,7 +32,7 @@ class GameFlow
 	end
 
 	private
-#método privado print_letters_feedback
+#método privado ask_to_raffle_a_word
     def ask_to_raffle_a_word
    	  @ui.write("Qual o tamanho da palavra a ser sorteada?")
 	  player_input = @ui.read.strip
@@ -53,6 +53,7 @@ class GameFlow
 
     end
 
+#método privado ask_to_guess_a_letter
 	def ask_to_guess_a_letter
 	  letter = @ui.read.strip
 
@@ -61,7 +62,7 @@ class GameFlow
 	  end	
 	end
 
-
+#método privado print_letters_feedback
 	def print_letters_feedback
 	  letters_feedback = ""
 		
