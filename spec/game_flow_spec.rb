@@ -82,8 +82,16 @@ describe GameFlow do
 		
 		
 		context "when the is in the 'word raffled' state" do	
+			it "asks the player to guess a letter" do
+				allow(game).to receive(:state).and_return(:word_raffled)
+				
+				question = "Qual letra voce acha que a palavra tem?"
+				expect(ui).to receive(:write).with(question)
 
-			context "When the player guess a letter with success" do
+				game_flow.next_step			
+			end
+
+			context "and the player guess a letter with success" do
 				it "prints a success message" do
 					allow(game).to receive_messages(:state => :word_raffled, :guess_letter => true)
 								
