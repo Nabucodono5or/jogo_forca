@@ -87,7 +87,7 @@ describe GameFlow do
 				success_message = "Você advinhou uma letra com sucesso."
 				expect(ui).to receive(:write).and_return(success_message)
 				
-				game.next_step
+				game_flow.next_step
 			
 			end			
 		end
