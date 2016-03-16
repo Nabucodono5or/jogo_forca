@@ -22,7 +22,7 @@ describe GameFlow do
 
 # retirado do teste da classe game
 	describe "#next_step" do
-		context "when the game just started" do
+		context "when the game is in the 'initial' state" do
 			it "asks the player for the length of the word to be raffled" do
 				question = "Qual o tamanho da palavra a ser sorteada?"
 				allow(ui).to receive(:write).and_return(question) 								
@@ -39,60 +39,65 @@ describe GameFlow do
 				
 				game_flow.next_step			
 			end
-		
-		end
 
-		context "when the player asks to raffle a word" do
-			it "raffles a word with the given length" do
-				word_length = "3"
-				allow(ui).to receive(:read).and_return(word_length)
+			context "and the player asks to raffle a word" do
+				it "raffles a word with the given length" do
+					word_length = "3"
+					allow(ui).to receive(:read).and_return(word_length)
 
-				expect(game).to receive(:raffle)
+					expect(game).to receive(:raffle)
 				
-				game_flow.next_step			
-			end
+					game_flow.next_step			
+				end
 
-			it "prints a '_' for each letter in the raffled word" do
-				word_length = "3"
-				allow(ui).to receive(:read).and_return(word_length)
-				allow(game).to receive(:raffle).and_return("mom") 					# pode haver problema na permissão acima, se assim for faça:
-				# game.stub(raffle: "mom", raffled_word: "mom")
+				it "prints a '_' for each letter in the raffled word" do
+					word_length = "3"
+					allow(ui).to receive(:read).and_return(word_length)
+					allow(game).to receive(:raffle).and_return("mom") 					# pode haver problema na permissão acima, se assim for faça:
+					# game.stub(raffle: "mom", raffled_word: "mom")
 
-				expect(ui).to receive(:write).and_return("_ _ _")
+					expect(ui).to receive(:write).and_return("_ _ _")
 
-				game_flow.next_step	
+					game_flow.next_step	
 		
-			end
+				end
 			
-			it "tells if it's not possible to raffle with the given length" do
-				word_length = "20"
-				allow(ui).to receive(:read).and_return(word_length)
-				allow(game).to receive(:raffle).and_return(nil)
+				it "tells if it's not possible to raffle with the given length" do
+					word_length = "20"
+					allow(ui).to receive(:read).and_return(word_length)
+					allow(game).to receive(:raffle).and_return(nil)
 
-				error_message = "Não temos uma palavra como tamanho " <<
-				"desejado, \n" <<
-				"é necessário escolher outro tamanho."
+					error_message = "Não temos uma palavra como tamanho " <<
+					"desejado, \n" <<
+					"é necessário escolher outro tamanho."
 				
-				expect(ui).to receive(:write).and_return(error_message)
+					expect(ui).to receive(:write).and_return(error_message)
 
-				game_flow.next_step
-			end	
+					game_flow.next_step
+				end	
 
+			end
+#codigo transferido		
 		end
 		
-		context "When the player guess a letter with success" do
-			it "prints a success message" do
-				allow(game).to receive_messages(:state => :word_raffled, :guess_letter => true)
+		
+		context "when the is in the 'word raffled' state" do	
+
+			context "When the player guess a letter with success" do
+				it "prints a success message" do
+					allow(game).to receive_messages(:state => :word_raffled, :guess_letter => true)
 								
-				success_message = "Você advinhou uma letra com sucesso."
-				expect(ui).to receive(:write).and_return(success_message)
+					success_message = "Você advinhou uma letra com sucesso."
+					expect(ui).to receive(:write).and_return(success_message)
 				
-				game_flow.next_step
+					game_flow.next_step
 			
-			end			
-		end
-	
-	end	
+				end			
+			end
+
+		end#context state word raffled
+
+	end#describe termina	
 
 
 end
