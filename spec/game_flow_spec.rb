@@ -82,9 +82,9 @@ describe GameFlow do
 		
 		
 		context "when the is in the 'word raffled' state" do	
-			it "asks the player to guess a letter" do
-				allow(game).to receive(:state).and_return(:word_raffled)
-				
+			before { allow(game).to receive(:state).and_return(:word_raffled)}
+
+			it "asks the player to guess a letter" do				
 				question = "Qual letra você acha que a palavra tem?"
 				expect(ui).to receive(:write).with(question)
 
@@ -93,7 +93,7 @@ describe GameFlow do
 
 			context "and the player guess a letter with success" do
 				it "prints a success message" do
-					allow(game).to receive_messages(:state => :word_raffled, :guess_letter => true)
+					allow(game).to receive(:guess_letter).and_return(true)
 								
 					success_message = "Você advinhou uma letra com sucesso."
 					expect(ui).to receive(:write).and_return(success_message)
