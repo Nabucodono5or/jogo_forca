@@ -85,7 +85,7 @@ describe GameFlow do
 			it "asks the player to guess a letter" do
 				allow(game).to receive(:state).and_return(:word_raffled)
 				
-				question = "Qual letra voce acha que a palavra tem?"
+				question = "Qual letra você acha que a palavra tem?"
 				expect(ui).to receive(:write).with(question)
 
 				game_flow.next_step			

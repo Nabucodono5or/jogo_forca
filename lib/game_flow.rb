@@ -55,6 +55,7 @@ class GameFlow
 
 #método privado ask_to_guess_a_letter
 	def ask_to_guess_a_letter
+	  @ui.write("Qual letra você acha que a palavra tem?")
 	  letter = @ui.read.strip
 
 	  if @game.guess_letter(letter)
