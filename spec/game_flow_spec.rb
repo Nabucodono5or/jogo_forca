@@ -5,7 +5,7 @@ require 'game_flow'
 
 describe GameFlow do
 	let(:ui) { double("ui").as_null_object }
-	let(:game) { double("game",state: :initial).as_null_object }
+	let(:game) { double("game",state: :initial, guess_letter: []).as_null_object }
 
 	subject(:game_flow) { GameFlow.new(game,ui) }
 
@@ -92,9 +92,9 @@ describe GameFlow do
 			end
 
 			context "and the player guess a letter with success" do
-				it "prints a success message" do
-					allow(game).to receive(:guess_letter).and_return(true)
-								
+					before {allow(game).to receive(:guess_letter).and_return(true)}				
+
+					it "prints a success message" do								
 					success_message = "Você advinhou uma letra com sucesso."
 					expect(ui).to receive(:write).and_return(success_message)
 				
@@ -103,7 +103,7 @@ describe GameFlow do
 				end
 				
 				it "prints the guessed letters" do
-					allow(game).to receive_messages(:guess_letter => true, :raffled_word => "hey", :guessed_letters => ["e"])
+					allow(game).to receive_messages(:raffled_word => "hey", :guessed_letters => ["e"])
 
 					expect(ui).to receive(:write).with("_ e _")
 

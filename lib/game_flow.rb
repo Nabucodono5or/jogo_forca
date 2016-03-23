@@ -41,7 +41,7 @@ class GameFlow
 		@game.finish		
 		else
 		  if @raffled_word = @game.raffle(player_input.to_i)
-			print_letters_feedback
+			@ui.write(guessed_letters)
 			else	
 			  error_message = "Não temos uma palavra com o tamanho " <<
 					  "desejado,\n" <<
@@ -65,6 +65,7 @@ class GameFlow
 	end
 
 #método privado print_letters_feedback
+=begin
 	def print_letters_feedback
 	  letters_feedback = ""
 		
@@ -76,6 +77,7 @@ class GameFlow
 	  @ui.write(letters_feedback)
 		
 	end
+=end
 
 # método guessed_letters
 	def guessed_letters
