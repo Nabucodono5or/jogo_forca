@@ -60,6 +60,7 @@ class GameFlow
 
 	  if @game.guess_letter(letter)
 		@ui.write("Você advinhou uma letra com sucesso.")
+		@ui.write(guessed_letters)
 	  end	
 	end
 
@@ -74,6 +75,21 @@ class GameFlow
 	  letters_feedback.strip!
 	  @ui.write(letters_feedback)
 		
+	end
+
+# método guessed_letters
+	def guessed_letters
+	  letters = ""
+
+	  @game.raffled_word.each_char do |letter|
+	  	if @game.guessed_letters.include?(letter)
+		  letters << letter + " "
+		else
+		  letters << "_ "
+		end
+	  end
+
+	  letters.strip!				
 	end
 
 end

@@ -100,6 +100,15 @@ describe GameFlow do
 				
 					game_flow.next_step
 			
+				end
+				
+				it "prints the guessed letters" do
+					allow(game).to receive_messages(:guess_letter => true, :raffled_word => "hey", :guessed_letters => ["e"])
+
+					expect(ui).to receive(:write).with("_ e _")
+
+					game_flow.next_step
+							
 				end			
 			end
 
