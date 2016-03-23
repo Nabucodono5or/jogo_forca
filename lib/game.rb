@@ -3,7 +3,7 @@
 require 'word_raffler'
 
 class Game
-	attr_reader :raffled_word
+	attr_accessor :raffled_word
 	attr_accessor :state	
 
 # método incializador	

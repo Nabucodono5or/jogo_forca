@@ -63,5 +63,15 @@ describe Game do
 		  expect(game).to be_ended
 		end	 	
 	end
+
+    describe "#guees_letter" do
+		it "returns true if the raffled word contains the given letter" do
+			game.raffled_word = "hey"
+			game.guess_letter("h")
+		
+			expect(game).to receive(:guess_letter).and_return(true)
+		end
+	end
+
 end
 
