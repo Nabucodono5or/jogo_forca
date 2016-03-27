@@ -31,4 +31,9 @@ class Game
 	  @state = :ended	
 	end
 
+#método guess letter
+	def guess_letter(letter)
+	  @raffled_word.include?(letter)
+	end
+
 end

@@ -67,9 +67,9 @@ describe Game do
     describe "#guees_letter" do
 		it "returns true if the raffled word contains the given letter" do
 			game.raffled_word = "hey"
+
+			expect(game).to receive(:guess_letter)
 			game.guess_letter("h")
-		
-			expect(game).to receive(:guess_letter).and_return(true)
 		end
 	end
 
