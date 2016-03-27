@@ -71,6 +71,14 @@ describe Game do
 			expect(game).to receive(:guess_letter)
 			game.guess_letter("h")
 		end
+
+		it "returns false if the raffled word doesn't contain the given" << 
+			"letter" do
+			game.raffled_word = "hey"
+
+			expect(game).to receive(:guess_letter).and_return(false)
+			game.guess_letter("z")
+		end
 	end
 
 end
