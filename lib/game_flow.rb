@@ -44,7 +44,7 @@ class GameFlow
 			@ui.write(guessed_letters)
 			else	
 			  error_message = "Não temos uma palavra com o tamanho " <<
-					  "desejado,\n" <<
+					  "desejado,\n " <<
 					  "é necessário escolher outro tamanho."
 
 			  @ui.write(error_message)

@@ -52,13 +52,17 @@ describe GameFlow do
 					game_flow.next_step			
 				end
 
+				#testando sintaxe nova
 				it "prints a '_' for each letter in the raffled word" do
 					word_length = "3"
 					allow(ui).to receive(:read).and_return(word_length)
-					allow(game).to receive(:raffle).and_return("mom") 					# pode haver problema na permissão acima, se assim for faça:
+
+					allow(game).to receive(:raffle).and_return("mom")
+					allow(game).to receive(:raffled_word).and_return("mom")
+					# pode haver problema na permissão acima, se assim for faça:
 					# game.stub(raffle: "mom", raffled_word: "mom")
 
-					expect(ui).to receive(:write).and_return("_ _ _")
+					expect(ui).to receive(:write).with("_ _ _ ")
 
 					game_flow.next_step	
 		
