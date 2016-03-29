@@ -5,6 +5,7 @@ require 'word_raffler'
 class Game
 	attr_accessor :raffled_word
 	attr_accessor :state	
+	attr_accessor :letters_advinhadas
 
 # método incializador	
 	def initialize(word_raffler = WordRaffler.new)
@@ -32,8 +33,21 @@ class Game
 	end
 
 #método guess letter
+#o ideal é que tenhha um variável de instancia com todas as letras advinhadas
 	def guess_letter(letter)
-	  @raffled_word.include?(letter)
+
+	  if @raffled_word.include?(letter)
+		if @letters_advinhadas
+		 @letters_advinhadas << letter
+		else
+		 @letters_advinhadas = letter
+		end
+		return true
+
+	 else
+		return false
+	 end
+
 	end
 
 end

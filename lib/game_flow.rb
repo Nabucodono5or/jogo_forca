@@ -32,6 +32,7 @@ class GameFlow
 	end
 
 	private
+
 #método privado ask_to_raffle_a_word
     def ask_to_raffle_a_word
    	  @ui.write("Qual o tamanho da palavra a ser sorteada?")
@@ -40,7 +41,7 @@ class GameFlow
 	  if player_input == "fim"
 		@game.finish		
 		else
-		  if @raffled_word = @game.raffle(player_input.to_i)
+		  if  @game.raffle(player_input.to_i)
 			@ui.write(guessed_letters)
 			else	
 			  error_message = "Não temos uma palavra com o tamanho " <<
@@ -80,14 +81,15 @@ class GameFlow
 =end
 
 # método guessed_letters
+# modificar um modo para que ele avlie somente a letra entrada
 	def guessed_letters
 	  letters = ""
 
 	  @game.raffled_word.each_char do |letter|
-	  	if @game.guessed_letters.include?(letter)
-		  letters << letter + " "
+	  	if @game.guess_letter(letter)
+		  letters = letters + letter + " "
 		else
-		  letters << "_ "
+		  letters = letters + "_ "
 		end
 	  end
 
