@@ -39,13 +39,12 @@ class Game
 	  return false if letter.strip == ''
 	  @raffled_word.include?(letter)
 
-=begin	  if @raffled_word.include?(letter)
+	  if @raffled_word.include?(letter)
 		@guessed_letters << letter
 		return true
 	  else
 		return false 
 	  end
-=end
 	end
 
 end

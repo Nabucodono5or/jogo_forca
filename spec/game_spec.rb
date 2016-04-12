@@ -81,6 +81,7 @@ describe Game do
 		  end.to change { game.guessed_letters }.from([]).to(["h"])	
 		end
 
+
 		it "returns false if the raffled word doesn't contain the given" << 
 			"letter" do
 		  game.raffled_word = "hey"
@@ -110,6 +111,7 @@ describe Game do
 		  game.guessed_letters
 		  expect(game.guessed_letters).to eq([])
 		end
+
 	end
 
 end
