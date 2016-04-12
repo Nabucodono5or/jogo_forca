@@ -86,10 +86,10 @@ class GameFlow
 	  letters = ""
 
 	  @game.raffled_word.each_char do |letter|
-	  	if @game.guess_letter(letter)
-		  letters = letters + letter + " "
+	  	if @game.guessed_letters.include?(letter)
+		  letters << letter << " "
 		else
-		  letters = letters + "_ "
+		  letters << "_ "
 		end
 	  end
 
@@ -97,3 +97,5 @@ class GameFlow
 	end
 
 end
+
+

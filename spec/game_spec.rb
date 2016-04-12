@@ -73,6 +73,14 @@ describe Game do
 
 		end
 
+		it "saves the guessed letter wen te guess is right" do
+		  game.raffled_word = "hey"
+
+		  expect do
+			game.guess_letter("h")
+		  end.to change { game.guessed_letters }.from([]).to(["h"])	
+		end
+
 		it "returns false if the raffled word doesn't contain the given" << 
 			"letter" do
 		  game.raffled_word = "hey"
@@ -85,7 +93,22 @@ describe Game do
 		  game.raffled_word = "hey"
 
 		  expect(game.guess_letter("")).to be false
+		  expect(game.guess_letter("  ")).to be false
+			
+		end
+	end
 
+	describe "#guessed_letters" do
+		it "returns the guessed letters" do
+		  game.raffled_word = "hey"
+		  game.guess_letter("e")
+
+		  expect(game.guessed_letters).to eq(["e"])	
+		end  	
+		
+		it "returns an empty array when there's no guessed letters" do
+		  game.guessed_letters
+		  expect(game.guessed_letters).to eq([])
 		end
 	end
 

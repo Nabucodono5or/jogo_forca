@@ -59,7 +59,6 @@ describe GameFlow do
 
 					allow(game).to receive(:raffle).and_return("mom")
 					allow(game).to receive(:raffled_word).and_return("mom")
-					# pode haver problema na permissão acima, se assim for faça:
 					# game.stub(raffle: "mom", raffled_word: "mom")
 
 					expect(ui).to receive(:write).with("_ _ _ ")
