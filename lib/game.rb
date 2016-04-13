@@ -41,6 +41,7 @@ class Game
 
 	  if @raffled_word.include?(letter)
 		@guessed_letters << letter
+		@guessed_letters.uniq!
 		return true
 	  else
 		return false 

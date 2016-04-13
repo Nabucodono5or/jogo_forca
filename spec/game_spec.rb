@@ -82,6 +82,16 @@ describe Game do
 		end
 
 
+		it "saves the guessed letter when the guess is right" do
+		  game.raffled_word = "hey"
+		  game.guess_letter("h")
+
+		  expect do
+			game.guess_letter("h")
+		  end.to_not change { game.guessed_letters }.from(["h"])
+		end
+
+
 		it "returns false if the raffled word doesn't contain the given" << 
 			"letter" do
 		  game.raffled_word = "hey"
