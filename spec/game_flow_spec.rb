@@ -61,7 +61,7 @@ describe GameFlow do
 					allow(game).to receive(:raffled_word).and_return("mom")
 					# game.stub(raffle: "mom", raffled_word: "mom")
 
-					expect(ui).to receive(:write).with("_ _ _ ")
+					expect(ui).to receive(:write).and_return("_ _ _ ")
 
 					game_flow.next_step	
 		
