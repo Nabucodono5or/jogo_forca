@@ -37,7 +37,6 @@ class Game
 #método guess letter
 	def guess_letter(letter)
 	  return false if letter.strip == ''
-	  @raffled_word.include?(letter)
 
 	  if @raffled_word.include?(letter)
 		@guessed_letters << letter

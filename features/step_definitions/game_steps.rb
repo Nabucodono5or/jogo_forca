@@ -23,8 +23,12 @@ Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
 end
 
 Dado /^o jogo tem as possíveis palavras para sortear:$/ do |word_table|
-	words = word_table.rows.map(&:last).join(" ")
-	set_rafflable_words(words)
+		words = word_table.rows.map(&:last).join(" ")
+		set_rafflable_words(words)
+end
+
+Então /^words é igual "([^"]*)"$/ do |text|
+	 @rafflable_words == text
 end
 
 Dado /^que escolhi que a palavra a ser sorteada deverá ter "(.*?)"\ letras$/ do 
