@@ -7,9 +7,7 @@ module GameHelpers
     def start_new_game
 	set_rafflable_words(%w[hi mom game fruit]) if @rafflable_words.nil?
 
-        steps %{
-           When I run 'forca "#{@rafflable_words}"' interactively
-        }            
+        step %(I run `forca` interactively)            
     end
 
 end

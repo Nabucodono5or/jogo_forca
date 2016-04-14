@@ -31,7 +31,7 @@ Funcionalidade: Advinhar letra
 	  E o jogo termina com a seguinte mensagem na tela:
 	    """
 	    a _ _
-        """
+	    """
 
 	Cenário: Erro ao advinhar letra
 	  Se o jogador errar ao tentar advinhar a letra, o jogo mostra uma 

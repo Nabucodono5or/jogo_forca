@@ -10,23 +10,15 @@ end
 
 
 Quando /^escolho que a palavra sorteada deverá ter "(.*?)" letras$/ do |number_of_letters|
-	steps %{
-		When I type "#{number_of_letters}"
-	} 
+	step %(I type "#{number_of_letters}") 
 end
 
 Quando /^termino o jogo$/ do
-	@state == :ended	
+	step %(I type "fim")	
 end
 
 Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
-	steps %{
-		Then the stdout should contain:
-		"""
-		#{text}
-		"""	
-		And then the exit status should be 0
-	}
+	step %(the stdout should contain "#{text}")
 
 end
 
@@ -37,22 +29,13 @@ end
 
 Dado /^que escolhi que a palavra a ser sorteada deverá ter "(.*?)"\ letras$/ do 
 |number_of_letters| 
-	steps %{
-	  When I type "#{number_of_letters}"
-	}		
+	step %(I type "#{number_of_letters}")		
 end
 
 Quando /^tento advinhar que a palavra tem a letra "(.*?)"$/ do |letter|
-	steps %{
-	  When I type "#{letter}"
-	}
+	step %(I type "#{letter}")
 end
 
 Então /^o jogo mostra que eu adivinhei uma letra com sucesso$/ do 
-	steps %{
-		Then the output should contain:
-		"""
-		Você adivinhou uma letra com sucesso.
-		"""
-}
+	steps %(Then the output should contain "Você adivinhou uma letra com sucesso.")
 end
