@@ -35,20 +35,15 @@ class GameFlow
 
 #método privado ask_to_raffle_a_word
     def ask_to_raffle_a_word
-   	  @ui.write("Qual o tamanho da palavra a ser sorteada?")
-	  player_input = @ui.read.strip
+	  ask_the_player("Qual o tamanho da palavra a ser sorteada?") do |length|
+	    if  @game.raffle(length.to_i)
+		print_letters_feedback
+	    else	
+		error_message = "Não temos uma palavra com o tamanho desejado,\né necessário escolher outro tamanho."
 
-	  if player_input == "fim"
-		@game.finish		
-		else
-		  if  @game.raffle(player_input.to_i)
-			@ui.write(guessed_letters)
-			else	
-			  error_message = "Não temos uma palavra com o tamanho desejado,\né necessário escolher outro tamanho."
-
-			  @ui.write(error_message)
-			end
-		end
+		@ui.write(error_message)
+	    end
+	  end
 
     end
 
@@ -64,7 +59,6 @@ class GameFlow
 	end
 
 #método privado print_letters_feedback
-=begin
 	def print_letters_feedback
 	  letters_feedback = ""
 		
@@ -76,10 +70,9 @@ class GameFlow
 	  @ui.write(letters_feedback)
 		
 	end
-=end
+
 
 # método guessed_letters
-# modificar um modo para que ele avlie somente a letra entrada
 	def guessed_letters
 	  letters = ""
 
@@ -93,6 +86,20 @@ class GameFlow
 
 	  letters.strip!				
 	end
+
+
+# método ask_the_player(question)
+	def ask_the_player(question)
+	  @ui.write(question)
+	  player_input = @ui.read.strip
+
+	  if player_input == "fim"
+		@game.finish
+	  else
+		yield player_input.strip
+	  end
+
+	end# fim do método ask_the_player
 
 end
 

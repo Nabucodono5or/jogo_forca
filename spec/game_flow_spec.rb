@@ -32,7 +32,7 @@ describe GameFlow do
 				game_flow.next_step
 			end
 			
-			it "finishes the game when the player asks to" do
+			xit "finishes the game when the player asks to" do
 				player_input = "fim"
 				allow(ui).to receive(:read).and_return(player_input)
 				allow(game).to receive(:state).and_return(:initial)
