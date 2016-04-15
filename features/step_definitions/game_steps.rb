@@ -38,6 +38,7 @@ end
 
 Quando /^tento advinhar que a palavra tem a letra "(.*?)"$/ do |letter|
 	step %(I type "#{letter}")
+# deveria recebr a dada string e testar fim do jogo e não somente seu recebimento
 end
 
 Então /^o jogo mostra que eu adivinhei uma letra com sucesso$/ do 

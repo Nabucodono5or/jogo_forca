@@ -35,10 +35,15 @@ describe GameFlow do
 			it "finishes the game when the player asks to" do
 				player_input = "fim"
 				allow(ui).to receive(:read).and_return(player_input)
-
+				allow(game).to receive(:state).and_return(:initial)
 				expect(game).to receive(:finish)
 				
-				game_flow.next_step			
+				game_flow.next_step
+
+				allow(game).to receive(:state).and_return(:word_raffled)
+				expect(game).to receive(:finish)
+ 
+				game_flow.next_step
 			end
 
 
