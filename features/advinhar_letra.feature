@@ -28,7 +28,7 @@ Funcionalidade: Advinhar letra
 	  Quando tento advinhar que a palavra tem a letra "a"
 	  E termino o jogo
 #	  Então o jogo mostra que eu adivinhei uma letra com sucesso
-#	  pendente por falta de soluçao
+#	  pendente por falta de soluçao e erro do proprio autor
 #	  E o jogo termina com a seguinte mensagem na tela:
 #		"""
 #		a _ _

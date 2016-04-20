@@ -53,6 +53,8 @@ class GameFlow
 	  	  if @game.guess_letter(letter)
 			@ui.write("Você advinhou uma letra com sucesso.")
 			@ui.write(guessed_letters)
+		  else
+			@ui.write("Você errou a letra.")
 		  end	
 	  end	
 	end
