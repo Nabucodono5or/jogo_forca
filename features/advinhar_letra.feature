@@ -17,7 +17,7 @@ Funcionalidade: Advinhar letra
 		| número de letras | palavra sorteada |
 		| 3                | avo              |
 
-
+	@ole
 	Cenário: Sucesso ao advinhar letra
 	  Se o jogador advinhar a letra com sucesso, o jogo mostra uma
 	  mensagem de sucesso e mostra em que posição está a leta que o 
@@ -27,13 +27,12 @@ Funcionalidade: Advinhar letra
 	  E que escolhi que a palavra a ser sorteada deverá ter "3" letras
 	  Quando tento advinhar que a palavra tem a letra "a"
 	  E termino o jogo
-	  Então o jogo mostra que eu adivinhei uma letra com sucesso
-	  E words é igual "avo" 
+#	  Então o jogo mostra que eu adivinhei uma letra com sucesso
 #	  pendente por falta de soluçao
 #	  E o jogo termina com a seguinte mensagem na tela:
 #		"""
-#a _ _
-#	    """
+#		a _ _
+#		"""
 
 	@wip
 	Cenário: Erro ao advinhar letra

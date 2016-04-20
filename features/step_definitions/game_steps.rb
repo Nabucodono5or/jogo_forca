@@ -27,10 +27,6 @@ Dado /^o jogo tem as possíveis palavras para sortear:$/ do |word_table|
 		set_rafflable_words(words)
 end
 
-Então /^words é igual "([^"]*)"$/ do |text|
-	 @rafflable_words == text
-end
-
 Dado /^que escolhi que a palavra a ser sorteada deverá ter "(.*?)"\ letras$/ do 
 |number_of_letters| 
 	step %(I type "#{number_of_letters}")		
@@ -38,9 +34,14 @@ end
 
 Quando /^tento advinhar que a palavra tem a letra "(.*?)"$/ do |letter|
 	step %(I type "#{letter}")
-# deveria recebr a dada string e testar fim do jogo e não somente seu recebimento
+# deveria receber a dada string e testar fim do jogo e não somente seu recebimento
 end
 
 Então /^o jogo mostra que eu adivinhei uma letra com sucesso$/ do 
-	steps %(Then the output should contain "Você adivinhou uma letra com sucesso.")
+	step %(the output should contain "Você advinhou uma letra com sucesso.")
 end
+
+Então(/^o jogo mostra que eu errei a advinhação da letra$/) do
+	step %(the stdout should contain "Você errou a letra.")
+end
+

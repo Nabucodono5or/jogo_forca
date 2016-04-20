@@ -101,6 +101,18 @@ describe GameFlow do
 				game_flow.next_step			
 			end
 
+
+			context "and the player fails to guess a letter" do
+				before { allow(game).to receive(:guess_letter).and_return(false)}
+
+				it "prints a error message" do
+					error_message = "Você errou a letra."
+					expect(ui).to receive(:write).with(error_message)
+
+					game_flow.next_step
+				end
+			end
+
 			context "and the player guess a letter with success" do
 					before {allow(game).to receive(:guess_letter).and_return(true)}				
 
