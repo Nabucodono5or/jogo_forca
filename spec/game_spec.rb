@@ -124,5 +124,12 @@ describe Game do
 
 	end
 
+	describe "#missed_parts" do
+		it "returns an empty array when there's no missed parts" do
+		  expect(game).to receive(missed_parts).and_return([])
+		end
+
+		it "returns the missed parts for each fail in guessing a letter"
+	end
 end
 
