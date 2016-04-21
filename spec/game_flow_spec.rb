@@ -111,6 +111,17 @@ describe GameFlow do
 
 					game_flow.next_step
 				end
+				
+				it "prints the list of the missed parts" do
+					allow(game).to receive(:missed_parts).and_return(["cabeça"])
+
+					missed_parts_message = "O boneco da forca perdeu as "<<
+											"seguintes partes do corpo: cabeça"
+
+					expect(ui).to receive(:write).with(missed_parts_message)
+
+					game_flow.next_step				
+				end
 			end
 
 			context "and the player guess a letter with success" do
