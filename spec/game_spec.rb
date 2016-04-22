@@ -126,10 +126,26 @@ describe Game do
 
 	describe "#missed_parts" do
 		it "returns an empty array when there's no missed parts" do
-		  expect(game).to receive(missed_parts).and_return([])
+		  expect(game.missed_parts).to eq([])
 		end
 
-		it "returns the missed parts for each fail in guessing a letter"
+		it "returns the missed parts for each fail in guessing a letter" do
+		  game.raffled_word = "hey"
+
+		  3.times do
+			game.guess_letter("z")
+		  end
+
+		  expect(game.missed_parts).to eq(["cabeça", "corpo", "braço esquerdo"])
+		end
+
+		it "updates the missed parts when the guess is wrong" do
+		  game.raffled_word = "hey"
+
+		  game.guess_letter("z")
+
+		  expect(game.missed_parts).to eq(["cabeça"])
+		end
 	end
 end
 

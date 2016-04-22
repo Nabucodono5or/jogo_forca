@@ -3,16 +3,21 @@
 require 'word_raffler'
 
 class Game
+	HANGMAN_PARTS = ["cabeça", "corpo", "braço esquerdo", "braço direito", "perna esquerda", "perna direita"]
+
 	attr_accessor :raffled_word
 	attr_accessor :state	
 	attr_accessor :letters_advinhadas
 	attr_reader :guessed_letters
+    attr_reader :missed_parts
 
 # método incializador	
 	def initialize(word_raffler = WordRaffler.new)
 	  @word_raffler = word_raffler
 	  @state = :initial
 	  @guessed_letters = []
+	  @missed_parts = []
+	  @wrong_guesses = 0
 	end
 
 
@@ -43,6 +48,8 @@ class Game
 		@guessed_letters.uniq!
 		return true
 	  else
+		@missed_parts << HANGMAN_PARTS[@wrong_guesses]
+		@wrong_guesses += 1
 		return false 
 	  end
 	end
