@@ -25,16 +25,16 @@ Funcionalidade: Advinhar letra
 
 	  Dado que comecei um jogo
 	  E que escolhi que a palavra a ser sorteada deverá ter "3" letras
-	  Quando tento advinhar que a palavra tem a letra "a"
+	  Quando tento advinhar que a palavra tem a letra "m"
 	  E termino o jogo
-#	  Então o jogo mostra que eu adivinhei uma letra com sucesso
-#	  pendente por falta de soluçao e erro do proprio autor
-#	  E o jogo termina com a seguinte mensagem na tela:
-#		"""
-#		a _ _
-#		"""
+	  Então o jogo mostra que eu adivinhei uma letra com sucesso
+#	  pendente para eliminar o datatable, o erro provém da usa utilização
+	  E o jogo termina com a seguinte mensagem na tela:
+		"""
+		m _ m
+		"""
 
-	@wip
+
 	Cenário: Erro ao advinhar letra
 	  Se o jogador errar ao tentar advinhar a letra, o jogo mostra uma 
 	  mensagem de erro e mostra quais as partes o boneco da forca já 
@@ -50,9 +50,20 @@ Funcionalidade: Advinhar letra
 		O boneco da forca perdeu as seguintes partes do corpo: cabeça
 		"""
 
+	@wip
 	Cenário: Jogador advinha com sucesso duas vezes
 	  Quanto mais o jogador for acertando, mais o jogo vai mostrando para 
 	  ele as letras que ele advinhou.
+
+	  Dado que comecei um jogo
+	  E que escolhi que a palavra a ser sorteada deverá ter "3" letras
+	  Quando tento advinhar que a palavra tem a letra "m"
+	  E tento advinhar que a palavra tem a letra "o"
+	  E termino o jogo
+	  Então o jogo termina com a seguinte mensagem na tela:
+		"""
+		m o m
+		"""
 
 	Cenário: Jogador erra três vezes ao advinhar letra
 	  Quanto mais o jogador for errando, mais partes do boneco da forca 
