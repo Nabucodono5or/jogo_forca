@@ -24,7 +24,7 @@ Contexto:
         E tento advinhar que a palavra tem a letra "o"
     	Então o jogo termina com a seguinte mensagem na tela:
             """
-            Voce venceu! :)
+            Você venceu! :)
             """
 
     Cenário: Jogador perde o jogo

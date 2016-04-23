@@ -61,8 +61,7 @@ class Game
 	def player_won?
 	  return false if @state != :ended
 
-	  raffled_word_letters = @raffled_word.to_s.chars.to_a.uniq.sort
-	  @guessed_letters.sort == raffled_word_letters
+	  all_letters_were_guessed?
 	end
 end
 
