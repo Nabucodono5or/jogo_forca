@@ -169,6 +169,24 @@ describe Game do
 
 		  expect(game.player_won?).to be true
 		end
+
+		it "returns false when te player didn't guessed all letters" do
+		  game.state = :word_raffled
+		  game.raffled_word = "hi"
+
+		  6.times { game.guess_letter("z") }
+
+		  expect(game.player_won?).to be false
+		end
+
+		it "returns false when the game is not in the 'ended' state" do
+		  game.state = :initial
+		  expect(game.player_won?).to be false
+
+		  game.state = :word_raffled
+		  expect(game.player_won?).to be false
+		end 
 	end
+
 end
 
