@@ -54,4 +54,11 @@ class Game
 	  end
 	end
 
+#método boolean player_won?
+	def player_won?
+	  return false if @state != :ended
+
+	  raffled_word_letters = @raffled_word.to_s.chars.to_a.uniq.sort
+	  @guessed_letters.sort == raffled_word_letters
+	end
 end

@@ -147,5 +147,17 @@ describe Game do
 		  expect(game.missed_parts).to eq(["cabeça"])
 		end
 	end
+
+	describe "#player_won?" do
+		it "returns true whhen the player guessed all letters with success" do
+		  game.state = :word_raffled
+		  game.raffled_word = "hi"
+
+		  game.guess_letter("h")
+		  game.guess_letter("i")
+
+		  expect(game.player_won?).to be true
+		end
+	end
 end
 
