@@ -50,7 +50,7 @@ Funcionalidade: Advinhar letra
 		O boneco da forca perdeu as seguintes partes do corpo: cabeça
 		"""
 
-	@wip
+	
 	Cenário: Jogador advinha com sucesso duas vezes
 	  Quanto mais o jogador for acertando, mais o jogo vai mostrando para 
 	  ele as letras que ele advinhou.
@@ -65,7 +65,18 @@ Funcionalidade: Advinhar letra
 		m o m
 		"""
 
+	@wip
 	Cenário: Jogador erra três vezes ao advinhar letra
 	  Quanto mais o jogador for errando, mais partes do boneco da forca 
 	  são perdidas.
+
+	  Dado que comecei um jogo
+	  E que escolhi que a palavra a ser sorteada deverá ter "3" letras
+	  Quando tento advinhar que a palavra tem a letra "z"
+	  E tento advinhar que a palavra tem a letra "y"
+	  E termino o jogo
+	  Então o jogo termina com a seguinte mensagem na tela:
+		"""
+		boneco da forca perdeu as seguintes partes do corpo: cabeça, corpo
+		"""
 
