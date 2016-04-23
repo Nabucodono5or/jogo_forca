@@ -29,11 +29,13 @@ class GameFlow
 	  when :word_raffled
 		ask_to_guess_a_letter
 	  end
+
+	  print_game_final_result if @game.ended?    
 	end
 
 	private
 
-#método privado ask_to_raffle_a_word
+#método privado ask_to_raffle_a_word	
     def ask_to_raffle_a_word
 	  ask_the_player("Qual o tamanho da palavra a ser sorteada?") do |length|
 	    if  @game.raffle(length.to_i)
@@ -106,6 +108,14 @@ class GameFlow
 	  end
 
 	end# fim do método ask_the_player
+
+#método privado print_game_final_result
+	def print_game_final_result
+	  if @game.player_won?
+		@ui.write("Você venceu! :)")
+	  end
+	end
+
 
 end
 
