@@ -46,6 +46,9 @@ class Game
 	  if @raffled_word.include?(letter)
 		@guessed_letters << letter
 		@guessed_letters.uniq!
+
+		@state = :ended if all_letters_were_guessed?
+
 		return true
 	  else
 		@missed_parts << HANGMAN_PARTS[@wrong_guesses]
@@ -62,3 +65,13 @@ class Game
 	  @guessed_letters.sort == raffled_word_letters
 	end
 end
+
+	private
+
+#método privado all_letters_were_guessed?
+	def all_letters_were_guessed?
+	  raffled_word_letters = @raffled_word.to_s.chars.to_a.uniq.sort
+
+	 @guessed_letters.sort == raffled_word_letters
+	end
+

@@ -107,6 +107,17 @@ describe Game do
 		  expect(game.guess_letter("  ")).to be false
 			
 		end
+
+		it "makes a transition to the 'ended' state when all the letters "<<
+			"are guessed with success" do
+			game.state = :word_raffled
+			game.raffled_word = "hi"
+
+			expect do
+			  game.guess_letter("h")
+			  game.guess_letter("i")
+			end.to change { game.state }.from(:word_raffled).to(:ended)
+		end
 	end
 
 	describe "#guessed_letters" do
