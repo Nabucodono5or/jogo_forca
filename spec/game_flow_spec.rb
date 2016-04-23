@@ -147,7 +147,17 @@ describe GameFlow do
 
 		end#context state word raffled
 
-	end#describe termina	
+		context "Wen the game is in the 'ended' state" do
+			before { allow(game).to receive(:state).and_return(:ended)}
+
+			it "prints a success message wen the player win" do
+				expect(ui).to receive(:write).with("Você venceu! :)")
+
+				game_flow.next_step
+			end
+		end
+
+	end#describe next_step termina	
 
 
 end
