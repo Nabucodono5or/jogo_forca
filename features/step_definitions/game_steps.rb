@@ -37,6 +37,13 @@ Quando /^tento advinhar que a palavra tem a letra "(.*?)"$/ do |letter|
 # deveria receber a dada string e testar fim do jogo e não somente seu recebimento
 end
 
+Quando(/^tento adivinhar que a palavra tem a letra "(.*?)" "(.*?)" vezes$/) do |letter, number_of_guesses|
+  
+	number_of_guesses.to_i.times do
+		step %(tento advinhar que a palavra tem a letra `#{letter}`)
+	end
+end
+
 Então /^o jogo mostra que eu adivinhei uma letra com sucesso$/ do 
 	step %(the output should contain "Você advinhou uma letra com sucesso.")
 end
