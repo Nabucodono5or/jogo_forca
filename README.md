@@ -6,6 +6,7 @@
 Um projeto simples que simula um jogo da forca pelo terminal.
 #### Foco:
 > A intenção deste projeto é praticar BDD usando o exercício de um livro que trata o mesmo, com direito a uso de integração continuada  e revisão de código.
+
 ### Instalação
 * * *
 ruby version ~> (2.2.3)
