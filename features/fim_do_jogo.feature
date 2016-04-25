@@ -27,7 +27,7 @@ Contexto:
             Você venceu! :)
             """
 
-    @wip
+
     Cenário: Jogador perde o jogo
         Para que o jogador perca o jogo, basta que ele erre 6 vezes ao
         tentar adivinhar uma letra.
