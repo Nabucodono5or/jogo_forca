@@ -40,7 +40,7 @@ end
 Quando(/^tento adivinhar que a palavra tem a letra "(.*?)" "(.*?)" vezes$/) do |letter, number_of_guesses|
   
 	number_of_guesses.to_i.times do
-		step %(tento advinhar que a palavra tem a letra `#{letter}`)
+		step %(I type "#{letter}")
 	end
 end
 
