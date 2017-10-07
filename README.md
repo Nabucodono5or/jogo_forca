@@ -25,7 +25,7 @@ Dentro da pasta jogo_forca execute:
         
 para inicializar o jogo.
 
-###Algumas informações
+### Algumas informações
 * * *
 
 * aruba (0.13.0)
@@ -35,10 +35,11 @@ para inicializar o jogo.
 
 versão de sistema operacional: linux
 
-###Ainda por fazer
+### Ainda por fazer
 * * *
 
 1.falta definir um fim de jogo para vitória, já que  cotinua a prosseguir mesmo acertando todas as palavras.
 
 2.Falta definir um geriador melor para sorteamento de palavras.
-
+## Licença
+Sob a [Licença MIT](https://github.com/Nabucodono5or/jogo_forca/blob/master/LICENSE)
